@@ -1,0 +1,10 @@
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
