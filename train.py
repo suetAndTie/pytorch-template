@@ -7,9 +7,15 @@ import model.metric as module_metric
 import model.model as module_arch
 from utils.config import ConfigParser
 from trainer import Trainer
+import random
+import numpy as np
 
 
 def main(config):
+    # set global random seeds
+    random.seed(config.seed)
+    np.random.seed(config.seed)
+
     logger = config.get_logger('train')
 
     # setup data_loader instances
@@ -55,4 +61,5 @@ if __name__ == '__main__':
         CustomArgs(['--bs', '--batch_size'], type=int, target=('data_loader', 'args', 'batch_size'))
     ]
     config = ConfigParser(args, options)
+
     main(config)

@@ -6,9 +6,15 @@ import model.loss as module_loss
 import model.metric as module_metric
 import model.model as module_arch
 from utils.config import ConfigParser
+import random
+import numpy as np
 
 
 def main(config):
+    # set global random seeds
+    random.seed(config.seed)
+    np.random.seed(config.seed)
+
     logger = config.get_logger('test')
 
     # setup data_loader instances
