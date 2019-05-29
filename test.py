@@ -14,6 +14,7 @@ def main(config):
     # set global random seeds
     random.seed(config.seed)
     np.random.seed(config.seed)
+    torch.manual_seed(config.seed)
 
     logger = config.get_logger('test')
 
