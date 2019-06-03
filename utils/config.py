@@ -40,8 +40,11 @@ class ConfigParser:
         timestamp = datetime.now().strftime(r'%m%d_%H%M%S') if timestamp else ''
 
         exper_name = self.config['name']
-        self._save_dir = save_dir / 'models' / exper_name / timestamp
-        self._log_dir = save_dir / 'log' / exper_name / timestamp
+        # self._save_dir = save_dir / 'models' / exper_name / timestamp
+        # self._log_dir = save_dir / 'log' / exper_name / timestamp
+        # really annoying having 2 different folders, so combining both
+        self._save_dir = save_dir / exper_name / timestamp
+        self._log_dir = self_save_dir
 
         self.save_dir.mkdir(parents=True, exist_ok=True)
         self.log_dir.mkdir(parents=True, exist_ok=True)
